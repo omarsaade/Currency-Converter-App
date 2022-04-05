@@ -3,10 +3,10 @@
 // , including inherited enumerable properties.
 
 const dropList = document.querySelectorAll(".drop-list select");//select
-const fromCurrency = document.querySelector(".from select");//.from select
-const toCurrency = document.querySelector(".to select");//.to select
+const fromCurrency = document.querySelector(".from select");// select
+const toCurrency = document.querySelector(".to select");// select
 const getButton = document.querySelector("form button");//button
-const ups = "3e4ba08f2c1025dac9ba41a1";//a
+const ups = "3e4ba08f2c1025dac9ba41a1"; //bala fadaye7
 
 // console.log(dropList);
 
@@ -64,7 +64,7 @@ for (let i = 0; i < dropList.length; i++) {
 
 
 
-//Load flag
+//Load flag when you select a currency_code
 function loadFlag(element) {
 
     for (code in country_code) {
@@ -76,7 +76,7 @@ function loadFlag(element) {
             // https://flagpedia.net/download/api
             //passing country code of a selected currency code in a img url
             // https://flagcdn.com/48x36/us.png
-            imgTag.src = `https://flagcdn.com/48x36/${country_code[code].toLowerCase()}.png`;
+            imgTag.src = `https://flagcdn.com/48x36/${country_code[code].toLowerCase()}.png`; //country_code[code] = value us
             // imgTag.src = `https://www.countryflags.io/${country_code[code]}/flat/64.png`;
         }
     }
@@ -128,6 +128,7 @@ function getExchangeRate() {
         amount.value = "1";
         amountVal = 1;
     }
+
     exchangeRateTxt.innerText = "Getting exchange rate...";
     //Exchanhe rate api
     // https://www.exchangerate-api.com/
@@ -138,6 +139,7 @@ function getExchangeRate() {
         console.log(result);
         let totalExchangeRate = (amountVal * exchangerate).toFixed(2);//total jaweb 1507
         exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExchangeRate} ${toCurrency.value}`;
+        // 2 USD = 3015.00 LBP
         // console.log(totalExchangeRate);
 
     }).catch(() => { //if user is offline or any other error occured while fetching data then catch function will run
